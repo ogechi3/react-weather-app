@@ -1,7 +1,41 @@
-.App {
+.Weather {
   border: 1px solid #dadce0;
-  margin: 15px;
+  font-family: Google Sans, arial, sans-serif;
+  margin: 30px auto;
+  max-width: 800px;
+  border-radius: 4px;
+  padding: 15px;
+  width: 70%;
 }
-footer{
-    text-align: center;
+.Weather li {
+  color: #70757a;
+  font-size: 16px;
+  list-style: none;
+}
+.Weather ul {
+  padding: 0;
+  margin: 0;
+}
+.Weather img {
+  display: inline-block;
+  height: 60px;
+
+  width: 60px;
+  vertical-align: top;
+  margin-top: unset;
+}
+
+.Weather .temperature {
+  color: #202124;
+  font-size: 48px;
+  font-weight: 400;
+}
+.Weather .unit {
+  font-size: 16px;
+  line-height: 24px;
+  position: relative;
+  top: -32px;
+}
+footer {
+  text-align: center;
 }

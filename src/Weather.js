@@ -4,21 +4,39 @@ import "./Weather.css";
 
 export default function Weather() {
   return (
-    <div>
+    <div className="Weather">
       <form>
-        <input type="search" placeholder="Enter a city..." autoFocus />
-        <input type="submit" className="btn btn-primary" />
+        <div className="row">
+          <div className="col-9">
+            <input
+              type="search"
+              placeholder="Enter a city..."
+              autoFocus="on"
+              className="w-100"
+            />
+          </div>
+          <div className="col-3">
+            <input type="submit" className="btn btn-primary w-100 p-1" />
+          </div>
+        </div>
       </form>
+      <h1>New york</h1>
+
       <div className="row">
-        <div className="col-1">
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-            alt="clear-sky"
-          />
+        <div className="col-2">
+          <div className="clearfix">
+            <div className="float-left">
+              <img
+                src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                alt="clear-sky"
+                className="float-left"
+              />
+              <span className=" temperature">2</span>
+              <span className="unit">℃</span>
+            </div>
+          </div>
         </div>
-        <div className="col-1">
-          <h1>2℃</h1>
-        </div>
+
         <div className="col-5">
           <ul>
             <li>Precipitation:0%</li>
