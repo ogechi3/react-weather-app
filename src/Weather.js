@@ -45,7 +45,7 @@ export default function Weather(props) {
           <div className="col-1 p-0">
             <div className="clearfix">
               <div className="float-left">
-                <img src={weatherData.iconUrl} className="float-left" />
+                <img src={weatherData.iconUrl} className="float-left" alt="" />
               </div>
             </div>
           </div>
