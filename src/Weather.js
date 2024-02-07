@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import axios from "axios";
+import FormattedDate from "./FormattedDate";
 
 import "./Weather.css";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   function getData(response) {
-    console.log(response.data);
+    console.log(response.data.time * 1000);
 
     setWeatherData({
       ready: true,
       temperature: response.data.temperature.current,
       humidity: response.data.temperature.humidity,
       wind: response.data.wind.speed,
-      date: "Sunday:23:00",
+      date: new Date(response.data.time * 1000),
       feelsLike: response.data.temperature.feels_like,
       description: response.data.condition.description,
       iconUrl:
@@ -65,7 +66,9 @@ export default function Weather(props) {
           <div className="col-4 p-0">
             <h1>Weather</h1>
             <ul>
-              <li>{weatherData.date}</li>
+              <li>
+                <FormattedDate date={weatherData.date} />
+              </li>
               <li className="text-capitalize">{weatherData.description}</li>
             </ul>
           </div>
@@ -76,5 +79,7 @@ export default function Weather(props) {
     let apiKey = `7fa2303eo545aaff0tfbf93c4ef484a6`;
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}`;
     axios.get(apiUrl).then(getData);
+
+    return "Loading...";
   }
 }
