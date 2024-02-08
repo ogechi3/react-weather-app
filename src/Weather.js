@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
+import WeatherIcon from "./WeatherIcon";
 import "./Weather.css";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState(props.defaultCity);
   function getData(response) {
-    console.log(response.data);
-
     setWeatherData({
       ready: true,
       temperature: response.data.temperature.current,
@@ -18,8 +17,7 @@ export default function Weather(props) {
       feelsLike: response.data.temperature.feels_like,
       description: response.data.condition.description,
       city: response.data.city,
-      iconUrl:
-        "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png",
+      iconUrl: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
     });
   }
 
