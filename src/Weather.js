@@ -9,24 +9,24 @@ export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
   function getData(response) {
-    console.log(response.data);
+ 
     setWeatherData({
       ready: true,
-      coordinates: response.data.coordinates,
-      temperature: response.data.temperature.current,
-      humidity: response.data.temperature.humidity,
+      coordinates: response.data.coord,
+      temperature: response.data.main.temp,
+      humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
-      date: new Date(response.data.time * 1000),
-      feelsLike: response.data.temperature.feels_like,
-      description: response.data.condition.description,
-      city: response.data.city,
-      icon: response.data.condition.icon,
+      date: new Date(response.data.dt * 1000),
+      feelsLike: response.data.main.feels_like,
+      description: response.data.weather[0].description,
+      city: response.data.name,
+      icon: response.data.weather[0].icon,
     });
   }
 
   function search() {
-    let apiKey = `7fa2303eo545aaff0tfbf93c4ef484a6`;
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+    let apiKey = `5f472b7acba333cd8a035ea85a0d4d4c`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(getData);
   }
 
@@ -50,6 +50,7 @@ export default function Weather(props) {
                 autoFocus="on"
                 className="w-100"
                 onChange={handleChangeCity}
+                id="CityName"
               />
             </div>
             <div className="col-3">
