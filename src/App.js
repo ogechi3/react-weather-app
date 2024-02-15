@@ -8,7 +8,7 @@ function App() {
         <Weather defaultCity="New York" />
         <footer>
           This page was coded by Thomas Jennifer and it is{" "}
-          <a href="https://github.com/ogechi3/react-weather-app">
+          <a href="https://github.com/ogechi3/react-weather-app" target="_blank" rel="noopener noreferrer">
             open sourced on GitHub
           </a>
         </footer>
