@@ -42,3 +42,58 @@
 footer {
   text-align: center;
 }
+
+@media screen and (max-width:750px) {
+  .Weather{
+      padding: 10px;
+      border: none;
+       width: 100%;
+
+  }
+
+  
+}
+
+@media screen and (max-width:450px) {
+  .Weather{
+  
+      border: none;
+       width: 100%;
+
+  }
+
+  .Weather .unit {
+  font-size: 12px;
+  line-height: 12px;
+  position: relative;
+  top: -32px;
+  padding-right: 15px;
+}
+
+.Weather canvas {
+  display: inline-block;
+  height: 40px;
+  vertical-align: top;
+  margin-top: 8px;
+  width: 30px;
+}
+
+.Weather .weather-h1{
+  display: none;
+}
+
+.Weather .temperature {
+  color: #202124;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.Weather .unit{
+    font-size: 12px;
+  line-height: 12px;
+  position: relative;
+  top: -6px;
+  padding-right: 15px;
+}
+
+}
